@@ -11,7 +11,7 @@ You can enter your desired Manga chapter to download and folder path where to st
 ### Dependencies:
 Python Requests, Json library
 
-###run
+### run
 ```bash
 python3 scraper.py
 ```
