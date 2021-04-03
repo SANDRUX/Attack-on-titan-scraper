@@ -1,5 +1,8 @@
+from fpdf import FPDF
+from PIL import Image
 import requests
 import json
+import os
 
 chapter = input("Enter chapter to download: ")
 path = input("Enter path were to store downloaded files: ")
@@ -45,7 +48,23 @@ headers2 = {
 
 req_str = 'https://read.mangadad.com/Mangadad/attack-on-titan/chapter-130/[count].jpg' #replacement string
 
+file_list = []
+
 for i in range (1, int(number_of_images) + 1): #Downloading images
     x = req_str.replace('[count]', str(i))
     response2 = requests.get(x, headers=headers2, allow_redirects=True)
-    open(path + str(i) + '.jpg', 'wb').write(response2.content)
+    open(path + '/' + str(i) + '.jpg', 'wb').write(response2.content)
+    file_list.append(str(i))
+
+pdf = FPDF()
+
+for i in file_list:
+    img = Image.open(path + '/' + i + '.jpg')
+    img = img.convert('RGB')
+    img.save(path + i)
+
+for image in file_list:
+    pdf.add_page()
+    pdf.image(image, 0, 0, 869, 1268)
+
+pdf.output(path + 'chapter' + chapter + '.pdf', 'F')
