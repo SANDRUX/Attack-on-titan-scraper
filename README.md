@@ -4,7 +4,7 @@ This software is developed to download the Manga Series of Attack on titan.
 You can enter your desired Manga chapter to download and folder path where to store downloaded images.
 
 
-![ ](https://github.com/SpookyPinkyTux/Attack-on-titan-scraper/blob/master/img/attack-titan-icon.png?raw=true)
+![ ](https://github.com/SpookyPinkyTux/Attack-on-titan-scraper/blob/master/img/attack-titan-icon.jpg?raw=true)
 
 ### Supported OS (Linux/MAC-OS/Windows)
 
