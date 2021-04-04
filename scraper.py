@@ -53,15 +53,10 @@ file_list = []
 for i in range (1, int(number_of_images) + 1): #Downloading images
     x = req_str.replace('[count]', str(i))
     response2 = requests.get(x, headers=headers2, allow_redirects=True)
-    open(path + '/' + str(i) + '.jpg', 'wb').write(response2.content)
+    open(path + '/' + str(i) + '.png', 'wb').write(response2.content)
     file_list.append(str(i))
 
 pdf = FPDF()
-
-for i in file_list:
-    img = Image.open(path + '/' + i + '.jpg')
-    img = img.convert('RGB')
-    img.save(path + i)
 
 for image in file_list:
     pdf.add_page()
